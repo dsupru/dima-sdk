@@ -8,7 +8,7 @@
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true
     },
-    "include": ["src/*", "src/examples/client.ts"],
+    "include": ["src/**/*"],
     "exclude": ["node_modules"]
 }
   
