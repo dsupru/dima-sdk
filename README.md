@@ -10,57 +10,49 @@ The API uses pagination for quotes
 
 # Usage
 
-This SDK provides access to everything you would want to know about the movies and quotes within them of the Lord of the Rings univers.
+This SDK provides access to everything you would want to know about the movies and quotes within them of the Lord of the Rings universe.
 
 ## Before you begin
-You have to establish authentication credentials, which can be done in 2 ways:
-1. Grab a token from ""
-2. Supply your public ssh key during registration here ""
+You have to establish authentication credentials, grab a token from https://the-one-api.dev
 
 ## What can it do ?
-This SDK allows you to answer questions like:
-- What quotes were said in a movie ?
-- Which movie is this quote from ?
-- List movies in the Hobbit Series
+This SDK allows you to query for movies and quotes and filter results.
+In particular, every field from a movie and a quote can be compared as equal to, less than or greater than some value.  
+Quotes link to movies so one can get a movie id from a quote object and query LOTR for movie with \_id filter to link the two together.  
+Support for `Quote.get(ValidItems.movie, { name: { op: 'eq', value: 'some quote example' } }` is coming soon !  
 
-You will run queries against 2 items: a __Movie__ and a __Quote__.  
+You will run queries against a LOTR object and you will receive a list of __Movie__ or __Quote__ objects.  
 Q: _How do I get a movie I want ?_  
-A: Either by name, TODO its ranking, o . 
+A: You can query by any field presented by the interface (defined below) 
 ```
-const movie = lotr.get({item: 'movie', filters:{name: 'The Unexpected Journey'}})
+import { LOTR, ValidItems } from 'dsupru-sdk';
+// Create a new instance of the SDK
+async function runFunQuery() {
+  console.log('This example shows how to use lotr sdk')
+  // Create a new instance of the SDK
+  const lotr = await LOTR.init('<your token>');
+  // Query by name
+  const movies = await lotr.get(ValidItems.movie, { name: { op: 'eq', value: 'The Unexpected Journey' } })
+  // Do something with the movie
+  console.log(movies);
+}
+
+runFunQuery();
 ```
-_What does that mean ?_  
-If you want to know what quotes were said in a movie, you would run:
-```
-movie.get({item: 'quotes'})
-```
-If you would like to restrict the results only to specific characters, you would do:
-```
-movie.get({item: 'quotes', filters:{text: "<Enter all or part of the text>"}})
-```
-TODO If you would like to get a movie is a quote from:
-```
-quote.get({item: 'movie'})
-```
-You can also 
-The full reference is at the end of this document.
+
+
 
 ## To use in your application:
-### Step 1: Authenticate
+### Step 1: Create an instance of the SDK
+ 
+```
+ // Create a new instance of the SDK
+ const lotr = await LOTR.init('<your token>');
+```
 
-If you opted to register and use SSH:  
-```
-lotr = lotr.auth_with({method: 'ssh', keypath: '~/.ssh/id_rsa.pub'})
-```
-If you are using a token:
-```
-lotr = lotr.auth_with({method: 'token', token: '<TOKEN_STRING>'})
-```
 ### Step 2: 
-Create a resource: Movie or Quote
-1. Authenticate:
-const movies 
-Authentication can be done either by provid
+Query away !
+
 # Test
 
 To run unit tests, please run: 
