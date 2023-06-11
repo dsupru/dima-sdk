@@ -1,4 +1,4 @@
 export * from './service';
-export * from './apiResponce';
-export * from './apiMovieResponce';
-export * from './apiQuoteResponce';
+export * from './apiResponse';
+export * from './apiMovieResponse';
+export * from './apiQuoteResponse';

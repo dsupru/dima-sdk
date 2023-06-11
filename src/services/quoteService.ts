@@ -1,9 +1,9 @@
 import { Service } from "./service";
-import { isQuoteAPIResponce, QuoteAPIResponce, ServiceConfig, ValidItems } from "../types";
+import { isQuoteAPIResponse, QuoteAPIResponse, ServiceConfig, ValidItems } from "../types";
 import { LOTRRequest } from "../ingress";
 
-class QuoteService extends Service<QuoteAPIResponce> {
-    protected updateData(data: QuoteAPIResponce[]): void {
+class QuoteService extends Service<QuoteAPIResponse> {
+    protected updateData(data: QuoteAPIResponse[]): void {
         this.data = data;
     }
 
@@ -11,8 +11,8 @@ class QuoteService extends Service<QuoteAPIResponce> {
         super(request, serviceConfig.endpoint);
     }
 
-    protected itemCheck(item: any): item is QuoteAPIResponce {
-        return isQuoteAPIResponce(item);
+    protected itemCheck(item: any): item is QuoteAPIResponse {
+        return isQuoteAPIResponse(item);
     }
 }
 

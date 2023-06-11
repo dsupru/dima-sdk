@@ -20,7 +20,7 @@ const config = {
       name: 'quote',
       endpoint: '/quote',
       uniqueField: '_id',
-      apiResponce: {
+      apiResponse: {
         '_id': 'string',
         'dialog': 'string'
       }

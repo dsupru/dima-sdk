@@ -1,5 +1,7 @@
 import { LOTRRequest } from "./LOTRRequest";
 
+// Should be a mock in the test function but jest refused to work in time
+// so I defined this as an implementation of LOTRRequest
 class TestLotrRequest extends LOTRRequest {
     async send(endpoint: string, params?: any): Promise<any> {
         // Return fake JSON data

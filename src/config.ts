@@ -8,7 +8,7 @@ export function getConfig(): LOTRConfig {
         name: "movie",
         endpoint: "/movie",
         uniqueField: "_id",
-        apiResponce: {
+        apiResponse: {
           _id: "string",
           name: "string",
           runtimeInMinutes: "number",
@@ -23,7 +23,7 @@ export function getConfig(): LOTRConfig {
         name: "quote",
         endpoint: "/quote",
         uniqueField: "_id",
-        apiResponce: {
+        apiResponse: {
           _id: "string",
           dialog: "string",
           movie: "string",

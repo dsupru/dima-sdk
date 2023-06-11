@@ -7,7 +7,7 @@ interface ServiceConfig {
     name: "movie" | "quote",
     endpoint: string,
     uniqueField: string,
-    apiResponce: {[key: string]: string}
+    apiResponse: {[key: string]: string}
 }
 
 const enum ValidItems { "quote" = "quote" , "movie" = "movie" } ;

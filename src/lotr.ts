@@ -3,7 +3,7 @@ import { buildServiceMap } from './configurator';
 import { buildIngres } from './ingress';
 import { Service } from './services';
 import { LOTRConfig, ValidItems } from './types';
-import { QuoteAPIResponce, MovieAPIResponce } from './types';
+import { QuoteAPIResponse, MovieAPIResponse } from './types';
 import { getConfig } from './config';
 
 export class LOTR {
@@ -23,7 +23,7 @@ export class LOTR {
     this.services = buildServiceMap(this.request, config.services)
   }
 
-  async get<T extends MovieAPIResponce | QuoteAPIResponce>(service: ValidItems, filters: { [K in keyof T]?: { op: 'lt' | 'gt' | 'eq', value: T[K] } }): Promise<any> {
+  async get<T extends MovieAPIResponse | QuoteAPIResponse>(service: ValidItems, filters: { [K in keyof T]?: { op: 'lt' | 'gt' | 'eq', value: T[K] } }): Promise<any> {
   
     // Return the data from the query
     return this.services[service].get(filters);

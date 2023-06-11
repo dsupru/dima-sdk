@@ -1,11 +1,11 @@
-interface QuoteAPIResponce {
+interface QuoteAPIResponse {
   _id: string;
   dialog: string;
   movie: string;
   character: string;
 }
  
-function isQuoteAPIResponce(obj: any): obj is QuoteAPIResponce {
+function isQuoteAPIResponse(obj: any): obj is QuoteAPIResponse {
   return (
     typeof obj._id === 'string' &&
     typeof obj.dialog === 'string' &&
@@ -14,4 +14,4 @@ function isQuoteAPIResponce(obj: any): obj is QuoteAPIResponce {
   );
 }
 
-export { QuoteAPIResponce, isQuoteAPIResponce };
+export { QuoteAPIResponse, isQuoteAPIResponse };

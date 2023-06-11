@@ -1,4 +1,4 @@
-interface MovieAPIResponce {
+interface MovieAPIResponse {
   _id: string;
   name: string;
   runtimeInMinutes: number;
@@ -9,7 +9,7 @@ interface MovieAPIResponce {
   rottenTomatoesScore: number;
 }
 
-function isMovieAPIResponce(obj: any): obj is MovieAPIResponce {
+function isMovieAPIResponse(obj: any): obj is MovieAPIResponse {
   return (
     typeof obj._id === 'string' &&
     typeof obj.name === 'string' &&
@@ -22,4 +22,4 @@ function isMovieAPIResponce(obj: any): obj is MovieAPIResponce {
   );
 }
 
-export { MovieAPIResponce, isMovieAPIResponce };
+export { MovieAPIResponse, isMovieAPIResponse };
