@@ -16,7 +16,6 @@ abstract class Service<T> {
 
     async update(): Promise<void> {
       let data = await this.request.send<T>(this.endpoint, this.itemCheck);
-      console.debug(data)
       this.updateData(data);
       this.lastUpdateTime = Date.now();
     }
