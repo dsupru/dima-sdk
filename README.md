@@ -4,8 +4,6 @@ To install, please run :
 ```
 npm install dsupru-sdk
 ```
-# Considerations
-The API uses pagination for quotes
 
 
 # Usage
