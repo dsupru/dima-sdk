@@ -51,8 +51,9 @@ runFunQuery();
 ```
 
 ### Step 2: 
-Query away !
-
+Query away !  
+You can filter on all fields in __Quote__ and __Movie__ endpoint.  
+![Diagram showing object relationship](api-entity-relationship.png)
 # Test
 
 To run unit tests, please run: 
