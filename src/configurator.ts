@@ -6,21 +6,13 @@ import { LOTRRequest } from './ingress';
 function buildServiceMap(request: LOTRRequest, services: ServiceConfig[]): {[key: string]: Service<any>} {
   let serviceMap: { [key in ValidItems]?: Service<any> }  = {};
 
+// runtime checks for config validity are not necessary
+// because the config is defined in the ts file and thus the compiles checks it
   services.forEach(serviceConfig => {
-    assertAPIConfigured(serviceConfig);
     serviceMap[serviceConfig.name] = buildService(request, serviceConfig);
   });
 
   return serviceMap;
-}
-
-// TODO
-// runtime checks for config validity
-function assertAPIConfigured(apiConfig: ServiceConfig) {
-    if (!apiConfig.endpoint) {
-        throw new Error('API configuration must include an endpoint');
-    }
-    return true;
 }
 
 export { buildServiceMap };

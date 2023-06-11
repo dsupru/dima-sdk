@@ -1,6 +1,6 @@
 import { ServiceConfig } from "../types";
 import { MovieService } from "./movieService";
-import {  QuoteService } from "./quoteService";
+import { QuoteService } from "./quoteService";
 import { Service } from "./service";
 import { LOTRRequest } from "../ingress";
 
