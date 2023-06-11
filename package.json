@@ -1,13 +1,13 @@
 {
     "name": "dsupru-sdk",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "The SDK for The One API",
     "main": "build/lotr.js",
     "types": "build/lotr.d.ts",
     "scripts": {
         "build": "tsc",
         "test": "jest",
-        "prepare": "tsc"
+        "prepublish": "tsc"
     },
     "author": "Dima",
     "license": "MIT",
