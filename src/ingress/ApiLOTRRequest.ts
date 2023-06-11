@@ -18,8 +18,9 @@ class ApiLOTRRequest extends LOTRRequest {
       // always set pages and stop only if there is no data
       const url = `https://the-one-api.dev/v2${endpoint}?page=${page}`;
 
-      const response = await fetch(url, this.headers );
+      const response = await fetch(url, {headers: this.headers} );
       if (!response.ok) {
+        console.error(response);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 

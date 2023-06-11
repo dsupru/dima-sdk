@@ -3,17 +3,16 @@ import { ServiceConfig, ValidItems, MovieAPIResponce, isMovieAPIResponce } from 
 import { LOTRRequest } from "../ingress";
 
 class MovieService extends Service<MovieAPIResponce> {
-    private movies: MovieAPIResponce[] = [];
-
     protected updateData(data: MovieAPIResponce[]): void {
-        this.movies = data;
+        this.data = data;
     }
     constructor(request: LOTRRequest, serviceConfig: ServiceConfig) {
         super(request, serviceConfig.endpoint);
     }
 
     protected itemCheck(item: any): item is MovieAPIResponce {
-      return isMovieAPIResponce(item); // TODO fix typo
+      const validData = isMovieAPIResponce(item);
+      return validData;// TODO fix typo
     }
 
 }

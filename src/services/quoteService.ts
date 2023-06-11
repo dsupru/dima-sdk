@@ -3,10 +3,8 @@ import { isQuoteAPIResponce, QuoteAPIResponce, ServiceConfig, ValidItems } from 
 import { LOTRRequest } from "../ingress";
 
 class QuoteService extends Service<QuoteAPIResponce> {
-    private quotes: QuoteAPIResponce[] = [];
-
     protected updateData(data: QuoteAPIResponce[]): void {
-        this.quotes = data;
+        this.data = data;
     }
 
     constructor(request: LOTRRequest, private serviceConfig: ServiceConfig) {

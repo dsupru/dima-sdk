@@ -1,9 +1,9 @@
 {
-    "name": "dsupru-SDK",
-    "version": "1.0.0",
+    "name": "dsupru-sdk",
+    "version": "0.0.1",
     "description": "The SDK for The One API",
-    "main": "build/index.js",
-    "types": "build/index.d.ts",
+    "main": "build/lotr.js",
+    "types": "build/lotr.d.ts",
     "scripts": {
         "build": "tsc",
         "test": "jest"

@@ -4,7 +4,7 @@ interface LOTRConfig {
 }
 
 interface ServiceConfig {
-    name: ValidItems,
+    name: "movie" | "quote",
     endpoint: string,
     uniqueField: string,
     apiResponce: {[key: string]: string}

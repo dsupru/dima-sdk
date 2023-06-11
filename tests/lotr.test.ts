@@ -35,15 +35,45 @@ describe('LOTR', () => {
     jest.useFakeTimers();
   });
 
-  it('should fetch movies with a rottenTomatoesScore greater than 70', async () => {
-    const lotr = new LOTR('your-api-token', config);
-    jest.runOnlyPendingTimers(); 
+  it('fetch movies with a rottenTomatoesScore greater than 70', async () => {
+    const lotr = await LOTR.init('your-api-token', config);
 
-    const movies = await lotr.get(ValidItems.movie, { rottenTomatoesScore: { op: 'gt', value: 70 } });
+    let movies = await lotr.get(ValidItems.movie, { rottenTomatoesScore: { op: 'gt', value: 70 } });
+
     expect(movies).toBeDefined();
     expect(movies.length).toBeGreaterThan(0);
     movies.forEach((movie: any) => {
       expect(movie.rottenTomatoesScore).toBeGreaterThan(70);
     });
+  });
+
+  it('fetch movies with a name equal to The Return of the King', async () => {
+    const lotr = await LOTR.init('your-api-token', config);
+
+    let movies = await lotr.get(ValidItems.movie, { name: { op: 'eq', value: "The Return of the King" } });
+
+    expect(movies).toBeDefined();
+    expect(movies.length).toBe(1);
+    movies.forEach((movie: any) => {
+      expect(movie.name).toBe("The Return of the King");
+    });
+  });
+
+  it('fetch all movies', async () => {
+    const lotr = await LOTR.init('your-api-token', config);
+
+    let movies = await lotr.get(ValidItems.movie, {});
+
+    expect(movies).toBeDefined();
+    expect(movies.length).toBe(2);
+  });
+
+  it('fetch all quotes', async () => {
+    const lotr = await LOTR.init('your-api-token', config);
+
+    let movies = await lotr.get(ValidItems.quote, {});
+
+    expect(movies).toBeDefined();
+    expect(movies.length).toBe(4);
   });
 });
